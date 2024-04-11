@@ -1,0 +1,17 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package ru.test.grpc;
+
+message NumberRequest {
+    int32 firstValue = 1;
+    int32 lastValue = 30;
+}
+
+message NumberResponse {
+    int32 newValue = 1;
+}
+
+service NumberService {
+    rpc start(stream NumberRequest) returns (stream NumberResponse);
+
+}
